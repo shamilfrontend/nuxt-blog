@@ -1,6 +1,6 @@
 # nuxt-blog
 
-> My dandy Nuxt.js project
+> Блог на VueJS, NuxtJS, NodeJS (Express), MongoDB
 
 ## Build Setup
 
