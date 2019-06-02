@@ -23,7 +23,7 @@
         prop="text"
       >
         <el-input
-          v-model.trim="controls.text"
+          v-model="controls.text"
           type="textarea"
           resize="none"
           :rows="10"
@@ -34,9 +34,20 @@
     <div class="mb2">
       <el-button
         type="success"
+        plain
+        @click="previewDialog = true"
       >
         Предпросмотр
       </el-button>
+
+      <el-dialog
+        title="Предпросмотр"
+        :visible.sync="previewDialog"
+      >
+        <div :key="controls.text">
+          <vue-markdown>{{controls.text}}</vue-markdown>
+        </div>
+      </el-dialog>
     </div>
 
     <div class="mb2">
@@ -78,6 +89,7 @@
     data() {
       return {
         loading: false,
+        previewDialog: false,
         controls: {
           title: '',
           text: '',
