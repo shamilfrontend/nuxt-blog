@@ -24,6 +24,7 @@ body {
   text-align: center;
 }
 
+// page opacity
 .page-enter-active,
 .page-leave-active {
   transition: opacity .3s;
@@ -32,4 +33,13 @@ body {
 .page-enter,
 .page-leave-active {
   opacity: 0;
+}
+// end page opacity
+
+.mb {
+  margin-bottom: 1rem;
+}
+
+.mb2 {
+  margin-bottom: 2rem;
 }
