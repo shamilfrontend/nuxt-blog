@@ -16,7 +16,7 @@
       <i class="el-icon-tickets"></i>
       <span>Посты</span>
     </el-menu-item>
-    <el-menu-item index="/admin/users">
+    <el-menu-item index="/admin/user">
       <i class="el-icon-user"></i>
       <span>Пользователи</span>
     </el-menu-item>

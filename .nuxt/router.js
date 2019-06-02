@@ -7,7 +7,7 @@ const _58659690 = () => interopDefault(import('../pages/admin/create.vue' /* web
 const _61531c5a = () => interopDefault(import('../pages/admin/list.vue' /* webpackChunkName: "pages/admin/list" */))
 const _a3a6dc46 = () => interopDefault(import('../pages/admin/login.vue' /* webpackChunkName: "pages/admin/login" */))
 const _6476b246 = () => interopDefault(import('../pages/admin/logout.vue' /* webpackChunkName: "pages/admin/logout" */))
-const _29eec8fc = () => interopDefault(import('../pages/admin/users.vue' /* webpackChunkName: "pages/admin/users" */))
+const _013bf907 = () => interopDefault(import('../pages/admin/user.vue' /* webpackChunkName: "pages/admin/user" */))
 const _44928747 = () => interopDefault(import('../pages/post/_id.vue' /* webpackChunkName: "pages/post/_id" */))
 const _ea7d7af4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -106,9 +106,9 @@ export function createRouter() {
       component: _6476b246,
       name: "admin-logout"
     }, {
-      path: "/admin/users",
-      component: _29eec8fc,
-      name: "admin-users"
+      path: "/admin/user",
+      component: _013bf907,
+      name: "admin-user"
     }, {
       path: "/post/:id?",
       component: _44928747,
