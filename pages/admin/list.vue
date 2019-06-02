@@ -9,7 +9,6 @@
         label="Название поста"
       >
         <template slot-scope="{row: {title}}">
-          <i class="el-icon-time"></i>
           <span>{{ title }}</span>
         </template>
       </el-table-column>
@@ -41,18 +40,30 @@
         label="Действия"
       >
         <template slot-scope="{row}">
-          <el-button
-            icon="el-icon-edit"
-            type="primary"
-            circle
-            @click="open(row._id)"
-          />
-          <el-button
-            icon="el-icon-delete"
-            type="danger"
-            circle
-            @click="remove(row._id)"
-          />
+          <el-tooltip
+            effect="dark"
+            content="Открыть пост"
+            placement="top"
+          >
+            <el-button
+              icon="el-icon-edit"
+              type="primary"
+              circle
+              @click="open(row._id)"
+            />
+          </el-tooltip>
+          <el-tooltip
+            effect="dark"
+            content="Удалить пост"
+            placement="top"
+          >
+            <el-button
+              icon="el-icon-delete"
+              type="danger"
+              circle
+              @click="remove(row._id)"
+            />
+          </el-tooltip>
         </template>
       </el-table-column>
     </el-table>
@@ -77,9 +88,27 @@
     methods: {
       open(id) {
         console.log(id);
+        this.$router.push(`/admin/post/${id}`);
       },
-      remove(id) {
+      async remove(id) {
         console.log(id);
+        try {
+          await this.$confirm('Вы действительно хотите удалить пост?', 'Внимание!', {
+            type: 'warning',
+            confirmButtonText: 'Да',
+            cancelButtonText: 'Отмена',
+          });
+
+          await this.$store.dispatch('post/remove', id);
+
+          this.posts = this.posts.filter(post => post._id !== id);
+
+          this.$message({
+            type: 'success',
+            message: 'Пост успешно удален'
+          });
+        } catch (e) {
+        }
       }
     }
   }
