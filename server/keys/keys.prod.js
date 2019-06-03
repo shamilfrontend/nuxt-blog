@@ -1,3 +1,4 @@
 module.exports = {
-  MONGO_URL: ''
+  MONGO_URL: '',
+  JWT: process.env.JWT,
 };
