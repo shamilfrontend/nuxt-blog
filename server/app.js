@@ -9,16 +9,20 @@ const keys = require('./keys');
 
 // init app
 const app = express();
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 app.use(passport.initialize());
 passport.use(passportStrategy);
 
 // routes
 const authRoutes = require('./routes/auth.routes');
+const postRoutes = require('./routes/post.routes');
 
 // routes init
 app.use('/api/auth', authRoutes);
+app.use('/api/post', postRoutes);
 
 // DB connect
 mongoose.connect(keys.MONGO_URL)
