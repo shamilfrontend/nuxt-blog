@@ -19,10 +19,12 @@ passport.use(passportStrategy);
 // routes
 const authRoutes = require('./routes/auth.routes');
 const postRoutes = require('./routes/post.routes');
+const commentRoutes = require('./routes/comment.routes');
 
 // routes init
 app.use('/api/auth', authRoutes);
 app.use('/api/post', postRoutes);
+app.use('/api/comment', commentRoutes);
 
 // DB connect
 mongoose.connect(keys.MONGO_URL)
