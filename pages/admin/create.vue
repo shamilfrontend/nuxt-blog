@@ -12,7 +12,7 @@
         prop="text"
       >
         <el-input
-          v-model.trim="controls.title"
+          v-model="controls.title"
         />
       </el-form-item>
     </div>
@@ -121,7 +121,7 @@
               const formData = {
                 title: this.controls.title,
                 text: this.controls.text,
-                image: this.controls.image,
+                image: this.image,
               };
               await this.$store.dispatch('post/create', formData);
               this.$message.success('Пост успешно создан');
@@ -144,10 +144,8 @@
         this.$refs.upload.clearFiles();
       },
 
-      handleImageChange(file, fileList) {
-        this.image = file.raw;
-        console.log('file', file);
-        console.log('fileList', fileList);
+      handleImageChange(response, files) {
+        this.image = files[0].raw;
       },
     },
   }

@@ -45,16 +45,12 @@ export const actions = {
   async create({commit, dispatch}, {title, text, image}) {
     try {
       const formData = new FormData();
+
       formData.append('title', title);
       formData.append('text', text);
       formData.append('image', image, image.name);
-      console.log('formData', formData);
 
-      return await new Promise(resolve => {
-        setTimeout(() => {
-          resolve();
-        }, 500);
-      });
+      return await this.$axios.$post('/api/post/admin/', formData)
     } catch (e) {
       commit('setError', e, {root: true});
       throw e;

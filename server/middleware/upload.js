@@ -6,8 +6,8 @@ const storage = multer.diskStorage({
   destination(req, file, callback) {
     callback(null, path.resolve(__dirname, '../../', 'static'));
   },
-  fileName(req, file, callback) {
-    callback(null, `${file.originalname}-${moment().format('DDMMYYYY-HHmmss_SSS')}`);
+  filename(req, file, callback) {
+    callback(null, `${moment().format('DDMMYYYY-HHmmss_SSS')}-${file.originalname}`);
   }
 });
 const fileFilter = (req, file, callback) => {

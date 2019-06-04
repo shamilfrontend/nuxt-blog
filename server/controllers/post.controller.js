@@ -7,7 +7,7 @@ module.exports.create = async (req, res) => {
   const post = new Post({
     title: req.body.title,
     text: req.body.text,
-    imageUrl: `/${req.file.filename}`,
+    imageUrl: '/' + req.file.filename,
   });
 
   try {
