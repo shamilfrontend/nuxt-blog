@@ -1,4 +1,33 @@
 export const actions = {
+  // main
+  async fetchPosts({commit}) {
+    try {
+      return await this.$axios.$get('/api/post/');
+    } catch (e) {
+      commit('setError', e, {root: true});
+      throw e;
+    }
+  },
+
+  async fetchPostsById({commit}, id) {
+    try {
+      return await this.$axios.$get(`/api/post/${id}`);
+    } catch (e) {
+      commit('setError', e, {root: true});
+      throw e;
+    }
+  },
+
+  async addView({commit}, {views, _id}) {
+    try {
+      await this.$axios.$put(`/api/post/add/view/${_id}`, {views});
+    } catch(e) {
+      commit('setError', e, {root: true});
+      throw e;
+    }
+  },
+
+  // admin
   async fetchAdminPosts({commit}) {
     try {
       return await this.$axios.$get('/api/post/admin/');

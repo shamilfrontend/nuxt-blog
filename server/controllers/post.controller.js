@@ -1,5 +1,3 @@
-const bcrypt = require('bcrypt-nodejs');
-
 const Post = require('../models/post.model');
 
 // admin
@@ -63,7 +61,9 @@ module.exports.remove = async (req, res) => {
 };
 
 module.exports.addView = async (req, res) => {
-  const $set = ++req.body.views;
+  const $set = {
+    views: ++req.body.views,
+  };
   try {
     await Post.findOneAndUpdate({
       _id: req.params.id,

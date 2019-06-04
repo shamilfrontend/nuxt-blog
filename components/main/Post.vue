@@ -8,26 +8,27 @@
       slot="header"
       class="post-header"
     >
-      <h3>Post title</h3>
+      <h3>{{post.title}}</h3>
       <small>
         <i class="el-icon-time"></i>
-        {{ new Date().toLocaleString() }}
+        {{ new Date(post.date).toLocaleString() }}
       </small>
     </header>
     <div class="post-body">
       <img
-        src="https://cdn.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg"
-        alt="img"
+        :src="post.imageUrl"
+        :alt="post.title"
         class="post-image"
       >
     </div>
     <footer class="post-footer">
       <el-button
         round
-        @click="openPost"
+        @click="openPost(post._id)"
       >Открыть</el-button>
       <span>
-        <i class="el-icon-message">12</i>
+        <i class="el-icon-message"></i>
+        {{post.comments.length}}
       </span>
     </footer>
   </el-card>
@@ -37,9 +38,16 @@
   export default {
     name: "Post",
 
+    props: {
+      post: {
+        required: true,
+        type: Object,
+      },
+    },
+
     methods: {
       openPost() {
-        const id = 'test-id';
+        const id = this.post._id;
         this.$router.push(`/post/${id}`)
       },
     },

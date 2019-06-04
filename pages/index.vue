@@ -10,8 +10,9 @@
       :lg="10"
     >
       <app-post
-        v-for="post in 3"
-        :key="post"
+        v-for="post in posts"
+        :key="post._id"
+        :post="post"
       />
     </el-col>
   </el-row>
@@ -24,6 +25,12 @@
     head: {
       title: 'Главная страница',
     },
+
+    async asyncData({store}) {
+      const {posts} = await store.dispatch('post/fetchPosts');
+      return {posts};
+    },
+
     components: {
       AppPost,
     },

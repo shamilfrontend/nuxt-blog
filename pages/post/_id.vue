@@ -7,7 +7,7 @@
       class="post-header"
     >
       <div class="post-title">
-        <h1>Post title</h1>
+        <h1>{{post.title}}</h1>
         <nuxt-link
           to="/"
         >
@@ -17,30 +17,21 @@
       <div class="post-info">
         <small>
           <i class="el-icon-time"></i>
-          {{ new Date().toLocaleString() }}
+          {{ new Date(post.date).toLocaleString() }}
         </small>
         <small>
           <i class="el-icon-view"></i>
-          {{ 34 }}
+          {{ post.views }}
         </small>
       </div>
       <img
-        src="https://cdn.tripzaza.com/ru/destinations/files/2017/09/Berlin-e1505798693967.jpg"
-        alt="img"
+        :src="post.imageUrl"
+        :alt="post.title"
         class="post-image"
       >
     </header>
     <main class="post-content">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis, cumque dolores ea fugiat impedit
-        laborum nam quam quisquam ut.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis, cumque dolores ea fugiat impedit
-        laborum nam quam quisquam ut.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis, cumque dolores ea fugiat impedit
-        laborum nam quam quisquam ut.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis, cumque dolores ea fugiat impedit
-        laborum nam quam quisquam ut.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At blanditiis, cumque dolores ea fugiat impedit
-        laborum nam quam quisquam ut.</p>
+      <vue-markdown>{{post.text}}</vue-markdown>
     </main>
     <footer>
       <comment-form
@@ -49,11 +40,11 @@
       />
 
       <div
-        v-if="true"
+        v-if="post.comments.length"
         class="comments"
       >
         <comment
-          v-for="comment in 5"
+          v-for="comment in post.comments"
           :key="comment"
           :comment="comment"
         />
@@ -84,6 +75,17 @@
 
     head: {
       title: 'Название поста',
+    },
+
+    async asyncData({store, params}) {
+      const {post} = await store.dispatch('post/fetchPostsById', params.id);
+      await store.dispatch('post/addView', post);
+      return {
+        post: {
+          ...post,
+          views: ++post.views
+        },
+      };
     },
 
     data() {

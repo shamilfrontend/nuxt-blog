@@ -46,7 +46,7 @@ router.delete(
 // public
 router.get('/', controller.getAll);
 router.get('/:id', controller.getById);
-router.put('/:id', controller.addView);
+router.put('/add/view/:id', controller.addView);
 
 
 module.exports = router;
