@@ -1,7 +1,5 @@
 <template>
-  <article
-    class="post"
-  >
+  <article class="post">
     <header
       slot="header"
       class="post-header"
