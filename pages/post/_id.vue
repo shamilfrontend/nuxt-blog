@@ -94,7 +94,6 @@
 
     methods: {
       createCommentHandler() {
-        console.log('createCommentHandler');
         this.canAddComment = false;
       },
     },

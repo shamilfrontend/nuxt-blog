@@ -19,7 +19,7 @@
           prop="text"
         >
           <el-input
-            v-model.trim="controls.text"
+            v-model="controls.text"
             type="textarea"
             resize="none"
             :rows="10"
@@ -71,7 +71,8 @@
     layout: 'admin',
 
     async asyncData({store, params}) {
-      const post = await store.dispatch('post/fetchAdminPostById', params.id);
+      const {post} = await store.dispatch('post/fetchAdminPostById', params.id);
+      console.log('post', post);
       return {
         post,
       };
@@ -93,6 +94,10 @@
           ],
         }
       };
+    },
+
+    mounted() {
+      this.controls.text = this.post.text;
     },
 
     methods: {

@@ -29,10 +29,10 @@ module.exports.getAll = async (req, res) => {
 
 module.exports.getById = async (req, res) => {
   try {
-    await Post.findById(req.body.id)
+    await Post.findById(req.params.id)
       .populate('comments')
       .exec((error, post) => {
-        req.status(200).json({post});
+        res.status(200).json({post});
       });
   } catch (e) {
     res.status(500).json(e);
@@ -47,7 +47,7 @@ module.exports.update = async (req, res) => {
     const post = await Post.findOneAndUpdate({
       _id: req.params.id,
       }, {$set}, {new: true});
-    req.status(200).json({post});
+    res.status(200).json({post});
   } catch (e) {
     res.status(500).json(e);
   }
@@ -55,10 +55,8 @@ module.exports.update = async (req, res) => {
 
 module.exports.remove = async (req, res) => {
   try {
-    await Post.deleteOne({
-      _id: req.params.id
-    });
-    req.status(200).json({message: 'Пост удален'});
+    await Post.deleteOne({_id: req.params.id});
+    res.json({message: 'Успешно'});
   } catch (e) {
     res.status(500).json(e);
   }

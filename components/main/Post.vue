@@ -40,7 +40,6 @@
     methods: {
       openPost() {
         const id = 'test-id';
-        console.log('openPost');
         this.$router.push(`/post/${id}`)
       },
     },

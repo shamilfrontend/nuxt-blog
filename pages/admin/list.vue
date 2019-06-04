@@ -79,7 +79,7 @@
     name: "list",
 
     async asyncData({store}) {
-      const posts = await store.dispatch('post/fetchAdminPosts');
+      const {posts} = await store.dispatch('post/fetchAdminPosts');
       return {
         posts,
       };
@@ -87,11 +87,9 @@
 
     methods: {
       open(id) {
-        console.log(id);
         this.$router.push(`/admin/post/${id}`);
       },
       async remove(id) {
-        console.log(id);
         try {
           await this.$confirm('Вы действительно хотите удалить пост?', 'Внимание!', {
             type: 'warning',
@@ -102,6 +100,8 @@
           await this.$store.dispatch('post/remove', id);
 
           this.posts = this.posts.filter(post => post._id !== id);
+
+          console.log('this.posts', this.posts);
 
           this.$message({
             type: 'success',
