@@ -14,8 +14,10 @@ module.exports.login = async (req, res) => {
       const token = jwt.sign({
         login: candidate.login,
         userId: candidate._id,
-      }, keys.JWT, {expiresId: 60 * 60});
-      res.status(200).json({token})
+      }, keys.JWT, {
+        expiresIn: 60 * 60,
+      });
+      res.status(200).json({token});
     } else {
       res.status(401).json({
         message: 'Пароль неверный',

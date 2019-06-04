@@ -10,3 +10,10 @@ export const mutations = {
   setError: (state, error) => state.error = error,
   clearError: state => state.error = null,
 };
+
+export const actions = {
+  nuxtServerInit({dispatch}) {
+    console.log('nuxtServerInit');
+    dispatch('auth/autoLogin');
+  },
+};
