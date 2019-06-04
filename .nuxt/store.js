@@ -20,6 +20,7 @@ void (function updateModules() {
   store.modules = store.modules || {}
 
   resolveStoreModules(require('../store/auth.js'), 'auth.js')
+  resolveStoreModules(require('../store/comment.js'), 'comment.js')
   resolveStoreModules(require('../store/post.js'), 'post.js')
 
   // If the environment supports hot reloading...
@@ -28,6 +29,7 @@ void (function updateModules() {
     // Whenever any Vuex module is updated...
     module.hot.accept([
       '../store/auth.js',
+      '../store/comment.js',
       '../store/index.js',
       '../store/post.js',
     ], () => {

@@ -34,7 +34,8 @@
     <footer>
       <comment-form
         v-if="canAddComment"
-        @created="createCommentHandler"
+        :post-id="post._id"
+        @created="createCommentHandler($event)"
       />
 
       <div
@@ -43,7 +44,7 @@
       >
         <comment
           v-for="comment in post.comments"
-          :key="comment"
+          :key="comment._id"
           :comment="comment"
         />
       </div>
@@ -76,7 +77,7 @@
     },
 
     async asyncData({store, params}) {
-      const {post} = await store.dispatch('post/fetchPostsById', params.id);
+      const post = await store.dispatch('post/fetchPostsById', params.id);
       await store.dispatch('post/addView', post);
       return {
         post: {
@@ -93,7 +94,8 @@
     },
 
     methods: {
-      createCommentHandler() {
+      createCommentHandler(comment) {
+        this.post.comments.unshift(comment);
         this.canAddComment = false;
       },
     },

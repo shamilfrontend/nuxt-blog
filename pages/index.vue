@@ -27,8 +27,10 @@
     },
 
     async asyncData({store}) {
-      const {posts} = await store.dispatch('post/fetchPosts');
-      return {posts};
+      const posts = await store.dispatch('post/fetchPosts');
+      return {
+        posts
+      };
     },
 
     components: {

@@ -5,14 +5,14 @@
     <header
       class="comment-header"
     >
-      <span>Person name</span>
+      <span>{{comment.name}}</span>
       <span>
-        <i class="el-icon-time"></i>{{ new Date().toLocaleString() }}
+        <i class="el-icon-time"></i>{{ new Date(comment.date).toLocaleString() }}
       </span>
     </header>
-    <div class="comment-text">
-      Lorem ipsum dolor sit amet.
-    </div>
+    <p class="comment-text">
+      {{comment.text}}
+    </p>
   </el-card>
 </template>
 
@@ -21,7 +21,10 @@
     name: "Comment",
 
     props: {
-      comment: {},
+      comment: {
+        type: Object,
+        required: true,
+      },
     },
   }
 </script>
@@ -45,5 +48,7 @@
 
   .comment-text {
     white-space: pre-line;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 </style>

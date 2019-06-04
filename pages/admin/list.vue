@@ -79,7 +79,7 @@
     name: "list",
 
     async asyncData({store}) {
-      const {posts} = await store.dispatch('post/fetchAdminPosts');
+      const posts = await store.dispatch('post/fetchAdminPosts');
       return {
         posts,
       };

@@ -71,8 +71,7 @@
     layout: 'admin',
 
     async asyncData({store, params}) {
-      const {post} = await store.dispatch('post/fetchAdminPostById', params.id);
-      console.log('post', post);
+      const post = await store.dispatch('post/fetchAdminPostById', params.id);
       return {
         post,
       };

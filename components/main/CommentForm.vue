@@ -11,7 +11,7 @@
       prop="name"
     >
       <el-input
-        v-model.trim="controls.name"
+        v-model="controls.name"
       />
     </el-form-item>
     <el-form-item
@@ -19,7 +19,7 @@
       prop="text"
     >
       <el-input
-        v-model.trim="controls.text"
+        v-model="controls.text"
         type="textarea"
         resize="none"
         :rows="2"
@@ -41,7 +41,10 @@
     name: "CommentForm",
 
     props: {
-      comment: {},
+      postId: {
+        type: String,
+        required: true,
+      },
     },
 
     data() {
@@ -72,18 +75,19 @@
 
     methods: {
       onSubmit() {
-        this.$refs.form.validate((valid) => {
+        this.$refs.form.validate(async valid => {
           if (valid) {
             this.loading = true;
 
             const formData = {
-              postId: '',
+              postId: this.postId,
               name: this.controls.name,
               text: this.controls.text,
             };
 
             try {
-              this.$emit('created');
+              const newComment = await this.$store.dispatch('comment/create', formData);
+              this.$emit('created', newComment);
               this.$message.success('Комментарий добавлен');
             } catch (e) {
               this.loading = false;
