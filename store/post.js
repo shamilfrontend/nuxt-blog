@@ -28,6 +28,15 @@ export const actions = {
   },
 
   // admin
+  async getAnalytics({commit}) {
+    try {
+      return await this.$axios.$get('/api/post/admin/get/analytics');
+    } catch (e) {
+      commit('setError', e, {root: true});
+      throw e;
+    }
+  },
+
   async fetchAdminPosts({commit}) {
     try {
       return await this.$axios.$get('/api/post/admin/');

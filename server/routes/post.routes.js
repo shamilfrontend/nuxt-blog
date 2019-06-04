@@ -43,6 +43,14 @@ router.delete(
   controller.remove
 );
 
+router.get(
+  '/admin/get/analytics',
+  passport.authenticate('jwt', {
+    session: false,
+  }),
+  controller.getAnalytics
+);
+
 // public
 router.get('/', controller.getAll);
 router.get('/:id', controller.getById);

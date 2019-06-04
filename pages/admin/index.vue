@@ -2,6 +2,8 @@
   <div class="">
     <h1>Аналитика по постам</h1>
 
+    <pre>{{analytics}}</pre>
+
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -19,6 +21,11 @@
     },
 
     extends: Bar,
+
+    async asyncData({store}) {
+      const analytics = await store.dispatch('post/getAnalytics');
+      return {analytics};
+    },
 
     mounted() {
       const data = {
