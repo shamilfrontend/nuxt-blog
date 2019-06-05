@@ -37,7 +37,7 @@ module.exports = {
   },
 
   env: {
-    appName: 'SSR Blog',
+    appName: 'NuxtJS SSR and PWA Blog',
   },
 
   build: {
