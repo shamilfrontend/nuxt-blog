@@ -72,8 +72,10 @@
       return Boolean(params.id);
     },
 
-    head: {
-      title: 'Название поста',
+    head() {
+      return {
+        title: `${this.post.title} | ${process.env.appName}`,
+      };
     },
 
     async asyncData({store, params}) {

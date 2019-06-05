@@ -28,7 +28,7 @@
     layout: 'admin',
 
     head: {
-      title: 'Панель управления',
+      title: `Аналитика | ${process.env.appName}`,
     },
 
     async asyncData({store}) {

@@ -84,6 +84,10 @@
 
     name: "create",
 
+    head: {
+      title: `Создать новый пост | ${process.env.appName}`,
+    },
+
     data() {
       return {
         loading: false,

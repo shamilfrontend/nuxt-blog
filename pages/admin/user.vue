@@ -52,6 +52,10 @@
 
     name: "user",
 
+    head: {
+      title: `Пользователи | ${process.env.appName}`,
+    },
+
     data() {
       return {
         loading: false,

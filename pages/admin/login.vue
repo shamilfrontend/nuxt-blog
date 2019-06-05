@@ -53,6 +53,10 @@
 
     name: "login",
 
+    head: {
+      title: `Авторизация | ${process.env.appName}`,
+    },
+
     data() {
       return {
         loading: false,

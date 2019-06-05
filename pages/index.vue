@@ -23,7 +23,7 @@
 
   export default {
     head: {
-      title: 'Главная страница',
+      title: `Главная страница | ${process.env.appName}`,
     },
 
     async asyncData({store}) {

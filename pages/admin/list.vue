@@ -78,6 +78,10 @@
 
     name: "list",
 
+    head: {
+      title: `Все посты | ${process.env.appName}`,
+    },
+
     async asyncData({store}) {
       const posts = await store.dispatch('post/fetchAdminPosts');
       return {
