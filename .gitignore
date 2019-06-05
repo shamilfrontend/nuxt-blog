@@ -3,3 +3,4 @@
 node_modules/
 package-lock.json
 sw.*
+server/keys/keys.dev.js

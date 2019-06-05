@@ -27,7 +27,7 @@ app.use('/api/post', postRoutes);
 app.use('/api/comment', commentRoutes);
 
 // DB connect
-mongoose.connect(keys.MONGO_URL, {
+mongoose.connect(keys.MONGO_URI, {
   useNewUrlParser: true
 })
   .then(() => {

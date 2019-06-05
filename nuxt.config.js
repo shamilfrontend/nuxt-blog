@@ -32,10 +32,8 @@ module.exports = {
     '@nuxtjs/pwa',
   ],
 
-  workbox: {
-  },
-
   axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000',
   },
 
   env: {
