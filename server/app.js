@@ -27,7 +27,9 @@ app.use('/api/post', postRoutes);
 app.use('/api/comment', commentRoutes);
 
 // DB connect
-mongoose.connect(keys.MONGO_URL)
+mongoose.connect(keys.MONGO_URL, {
+  useNewUrlParser: true
+})
   .then(() => {
     console.log('Database connected!');
   })
