@@ -1,0 +1,1 @@
+{"version":3,"file":"d93336584da825c2fae0.js","sources":["webpack:///./pages/admin/logout.vue"],"sourcesContent":["var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('h1',[_vm._ssrNode(\"Очищаем данные\")])}\nvar staticRenderFns = []\n\nexport { render, staticRenderFns }"],"mappings":"AAAA","sourceRoot":""}

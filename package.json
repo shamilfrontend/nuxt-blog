@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.19.0",
     "chart.js": "^2.8.0",
