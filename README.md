@@ -2,6 +2,8 @@
 
 > Блог на VueJS, NuxtJS, NodeJS (Express), MongoDB
 
+DEMO - https://nuxt-blog-shamil.herokuapp.com/
+
 ## Build Setup
 
 ``` bash

@@ -75,6 +75,18 @@
     head() {
       return {
         title: `${this.post.title} | ${process.env.appName}`,
+        meta: [
+          {
+            hid: `post-${this.post._id}`,
+            name: 'description',
+            content: this.post.title,
+          },
+          {
+            hid: `post-${this.post._id}`,
+            name: 'keywords',
+            content: 'nuxt, vue, ssr',
+          },
+        ]
       };
     },
 

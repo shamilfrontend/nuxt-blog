@@ -24,6 +24,18 @@
   export default {
     head: {
       title: `Главная страница | ${process.env.appName}`,
+      meta: [
+        {
+          hid: 'homepage',
+          name: 'description',
+          content: 'Мой крутой блог',
+        },
+        {
+          hid: 'homepage',
+          name: 'keywords',
+          content: 'nuxt, vue, ssr',
+        },
+      ]
     },
 
     async asyncData({store}) {
