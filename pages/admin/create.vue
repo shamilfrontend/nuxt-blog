@@ -26,7 +26,7 @@
           v-model="controls.text"
           type="textarea"
           resize="none"
-          :rows="10"
+          :rows="30"
         />
       </el-form-item>
     </div>

@@ -139,8 +139,14 @@
   .post-content {
     margin-bottom: 2rem;
     line-height: 1.4;
-    p {
-      margin-bottom: 0.25rem;
+
+    /deep/ p {
+      margin-bottom: 0.5rem;
+    }
+
+    /deep/ ul {
+      padding-left: 20px;
+      margin-bottom: 1rem;
     }
   }
 </style>

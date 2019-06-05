@@ -22,7 +22,7 @@
             v-model="controls.text"
             type="textarea"
             resize="none"
-            :rows="10"
+            :rows="30"
           />
         </el-form-item>
       </div>
@@ -60,7 +60,7 @@
 
     head() {
       return {
-        title: `Пост | ${this.post.title}`,
+        title: `${this.post.title} | ${process.env.appName}`,
       };
     },
 

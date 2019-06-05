@@ -14,7 +14,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB, Microsoft YaHei, SimSun, sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
@@ -34,6 +34,7 @@ body {
 .page-leave-active {
   opacity: 0;
 }
+
 // end page opacity
 
 .mb {
@@ -42,4 +43,19 @@ body {
 
 .mb2 {
   margin-bottom: 2rem;
+}
+
+blockquote {
+  background: none repeat scroll 0 0 #fafafa;
+  border-bottom: 3px dashed #bababa;
+  border-top: 3px dashed #bababa;
+  color: #878787;
+  font-family: Georgia, serif;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.45;
+  padding: 10px 15px;
+  position: relative;
+  text-align: center;
+  width: 100%;
 }
