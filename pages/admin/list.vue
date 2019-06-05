@@ -17,7 +17,7 @@
       >
         <template slot-scope="{row: {date}}">
           <i class="el-icon-time"></i>
-          <span>{{ new Date(date).toLocaleString() }}</span>
+          <span>{{ date | date('date') }}</span>
         </template>
       </el-table-column>
       <el-table-column
