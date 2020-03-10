@@ -2,10 +2,6 @@
 
 > Блог на VueJS, NuxtJS, NodeJS (Express), MongoDB
 
-DEMO - https://nuxt-blog-shamil.herokuapp.com/
-Admin - https://nuxt-blog-shamil.herokuapp.com/admin
-login - admin
-password - 123456
 ## Build Setup
 
 ``` bash
